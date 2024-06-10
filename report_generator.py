@@ -24,6 +24,7 @@ llm_model_id = "phi3:14b"
 
 base_folder = "./data/"
 
+# Just mash your linked-in about section into this variable
 user_cv = """
         Senior Software Developer | Software/System Engineer | AI and Machine Learning Enthusiast | Crafty software builder
 
