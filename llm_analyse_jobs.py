@@ -83,8 +83,6 @@ for key, value in jobs_html.items():
     """
 
     chat = [
-        # {"role": "system", "content": system_prompt},
-        # {"role": "assistant", "content": "Sure, i will follow your instructions, stick to the dataset and not make up new data."},
         {"role": "user", "content": user_prompt},
     ]
 
