@@ -1,0 +1,9 @@
+requests 
+beautifulsoup4
+fake-useragent
+transformers
+openai
+sentencepiece
+protobuf
+jinja2
+futures3
