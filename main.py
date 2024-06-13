@@ -9,6 +9,17 @@ import time
 logging.config.fileConfig('logging.config')
 logger = logging.getLogger('sampleLogger')
 
+urls = {
+    "Jobindex": "https://www.jobindex.dk/jobsoegning/it/systemudvikling/region-midtjylland",
+    "Jobfinder": "https://www.jobfinder.dk/jobs?keywords=&radius=-&latlon=Aarhus%2C%20Danmark",
+}
+
+url = urls["Jobindex"]
+
+# configure if you want to force a refresh
+force_refresh = True
+force_refresh = False
+
 
 def run_script(script_path, args=None):
     if args is None:
@@ -29,39 +40,14 @@ base_folder = "./data/"
 if not os.path.exists(base_folder):
     os.mkdir(base_folder)
 
-user_cv = """
-        Senior Software Developer | Software/System Engineer | AI and Machine Learning Enthusiast | Crafty software builder
-
-        I want to build systems that move things forward. Massive legacy systems that maintain the status quo, is not my thing. Let's build something new instead.
-
-        Self taught in machine learning subjects. Have been diving into building Agentic systems, speech and text processing, RAG backed bots and other fun stuff.
-        Experience with building sw using OpenAi and open source local LLMs.
-        Mistral, Mixtral, LLAMA, StarCoder, Whisper etc.
-
-        About me:
-        - A pragmatic and generalist that gets things done. 
-        - I like to analyze and build new things. 
-        - Comfortable working independently or in teams.
-        - Proficient in SW architecture and design.
-        - I like a little structure, but rely on my own judgment.
-        - Memorization is not my thing, but creativity is.
-        - I emphasize on building aesthetic and quality software.
-
-        Proficient with a broad variety of tech and tools like:
-        C#, processing pipelines and message bus, WPF, SQL, JS, React, Node, Electron, Java, Python.
-        AWS, Docker, Gradle, Maven, AzureDevops/VSOnline, vector databases.
-
-        Looking for roles where creativity drives progress and innovation is the goal.
-    """
-
-urls = {
-    "Jobindex": "https://www.jobindex.dk/jobsoegning/it/systemudvikling/region-midtjylland",
-    "Jobfinder": "https://www.jobfinder.dk/jobs?keywords=&radius=-&latlon=Aarhus%2C%20Danmark",
-}
-
-url = urls["Jobindex"]
-force_refresh = True
-force_refresh = False
+try:
+    with open("./user_cv.txt") as f:
+        user_cv = f.readlines()[0].strip()
+except FileNotFoundError:
+    logger.error("No cv file found.")
+    exit(1)
+if not user_cv:
+    user_cv = "This candidate has qualifications"
 
 run_script("job_scraper.py", [url, str(force_refresh)])
 run_script("llm_analyse_jobs.py", [str(force_refresh)])

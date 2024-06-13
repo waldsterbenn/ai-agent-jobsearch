@@ -82,8 +82,8 @@ seejob_links = [element.find(
 # <a href = "https://fashionforum.dk/job/ceo-4/" > </a >
 # <a href="https://fashionforum.dk/job/digital-marketing-e-commerce-manager/"></a>
 # <a class="newjobs-link" href="https://fashionforum.dk/job/finance-manager-13/"></a>
-seejob_links = [element.find(
-    "a", {"class": "btn btn-sm btn-primary seejobdesktop"})["href"] for element in button_elements]
+# seejob_links = [element.find(
+#    "a", {"class": "btn btn-sm btn-primary seejobdesktop"})["href"] for element in button_elements]
 
 
 # Iterate through the href values and get the HTML contents of each linked page:
