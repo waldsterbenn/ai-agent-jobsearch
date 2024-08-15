@@ -16,11 +16,13 @@ current_model = "mixtral"
 current_model = "wizardlm2:7b"
 current_model = "phi3:14b"
 current_model = "llama3:8b-instruct-q8_0"
+current_model = "llama3.1"
 
 llm_model_id = "cognitivecomputations/dolphin-2.7-mixtral-8x7b"
 llm_model_id = "microsoft/WizardLM-2-7B"
 llm_model_id = "phi3:14b"
 llm_model_id = "llama3:8b-instruct-q8_0"
+llm_model_id = "llama3.1"
 
 base_folder = "./data/"
 

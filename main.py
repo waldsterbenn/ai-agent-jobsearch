@@ -17,8 +17,8 @@ urls = {
 url = urls["Jobindex"]
 
 # configure if you want to force a refresh
-force_refresh = True
 force_refresh = False
+force_refresh = True
 
 
 def run_script(script_path, args=None):
