@@ -52,7 +52,7 @@ if not user_cv:
 run_script("job_scraper.py", [url, str(force_refresh)])
 run_script("llm_analyse_jobs.py", [str(force_refresh)])
 run_script("report_generator.py", [user_cv])
-# run_script("email_report_generator.py")
+run_script("email_report_generator.py")
 
 # Copy files to obsidian
 fmt = "%Y-%m-%d"
